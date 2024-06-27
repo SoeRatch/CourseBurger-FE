@@ -39,3 +39,87 @@ yarn add sass
 # and add a build script in `package.json`
 
 # Now, run `yarn build` to generate CSS files inside the `lib` folder
+
+```
+
+
+## MONO REPOSITORY STRATEGY 
+
+
+```bash
+
+- Make a new npm project at root 
+yarn init -y
+
+
+- Install lerna 
+** Lerna is a fast modern build system for managing and publishing multiple JavaScript/TypeScript packages from the same repository. **
+It helps publish our packages to npm very easily . 
+
+yarn add --dev lerna 
+
+- Add  "workspaces": ["packages/*"] in package.json
+
+- Initialize a new lerna project 
+yarn lerna init 
+
+- modify lerna.json 
+```javascript
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "useNx": true,
+  "packages": [
+    "packages/*"
+  ],
+  "npmClient": "yarn",
+  "version": "0.0.0",
+  "stream":true
+}
+```
+
+- modify root package.json
+```javascript
+{
+  
+"workspaces": {
+    "packages":[
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/normalize-scss"
+    ]
+  },
+  "private":true
+}
+
+```
+
+
+- Delete all node modules 
+rm -rf ./**/node_modules
+or 
+find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+
+- Now run yarn command to install npm packages
+yarn
+
+use lerna to run specific script in all of our packages . for eg , in root package.json 
+
+```javascript
+{
+  
+"scripts": {
+    "build": "yarn lerna run build"
+  },
+
+}
+
+```
+* most of our packages will have build step and one build command will run all the build step inside all packages *
+ 
+```
+yarn build
+```
+
+
+```
