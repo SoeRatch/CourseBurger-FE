@@ -6,7 +6,7 @@
 - Node.js: v22.3.0
 - Yarn: v1.22.22
 
-### SCSS Setup
+## SCSS Setup
 
 ```bash
 # Navigate to the `scss` directory
@@ -46,24 +46,27 @@ yarn add sass
 ## MONO REPOSITORY STRATEGY 
 
 
-```bash
-
 - Make a new npm project at root 
+```bash
 yarn init -y
-
+```
 
 - Install lerna 
 ** Lerna is a fast modern build system for managing and publishing multiple JavaScript/TypeScript packages from the same repository. **
 It helps publish our packages to npm very easily . 
-
+```bash
 yarn add --dev lerna 
+```
+
 
 - Add  "workspaces": ["packages/*"] in package.json
 
 - Initialize a new lerna project 
+```bash
 yarn lerna init 
+```
 
-- modify lerna.json 
+- Modify lerna.json 
 ```javascript
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
@@ -77,7 +80,7 @@ yarn lerna init
 }
 ```
 
-- modify root package.json
+- Modify root package.json
 ```javascript
 {
   
@@ -96,12 +99,17 @@ yarn lerna init
 
 
 - Delete all node modules 
+```bash
 rm -rf ./**/node_modules
 or 
 find . -name "node_modules" -type d -prune -exec rm -rf '{}' +
+```
+
 
 - Now run yarn command to install npm packages
+```bash
 yarn
+```
 
 use lerna to run specific script in all of our packages . for eg , in root package.json 
 
@@ -115,11 +123,9 @@ use lerna to run specific script in all of our packages . for eg , in root packa
 }
 
 ```
-* most of our packages will have build step and one build command will run all the build step inside all packages *
- 
+
+* Most of our packages will have build step and one build command will run all the build step inside all packages *
+
 ```
 yarn build
-```
-
-
 ```
