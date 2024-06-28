@@ -87,4 +87,8 @@ jest-coverage/
 # Ignore Angular build output
 /dist/
 
+# Ignore all lib directories in the project
+**/lib
+
+
 
