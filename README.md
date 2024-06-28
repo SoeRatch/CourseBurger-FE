@@ -129,3 +129,59 @@ use lerna to run specific script in all of our packages . for eg , in root packa
 ```
 yarn build
 ```
+
+
+## React Package
+
+This package would be the implementation of our design system using Reactjs Library
+
+- make react package
+```
+cd packages
+mkdir react
+```
+
+- Initialize react package
+```
+cd packages/react
+yarn init -y
+```
+
+- Install dev dependencies 
+
+```
+yarn add --dev react @types/react typescript
+```
+
+- Create tsconfig.json for typescript and paste in the basic configuration 
+```
+touch tsconfig.json
+```
+
+- Install a bundler called rollup 
+
+```
+cd packages/react
+yarn add --dev rollup rollup-plugin-typescript2
+```
+- Create rollup.config.mjs file
+```
+touch rollup.config.mjs
+```
+
+- Add build script in package.json
+```javascript
+{
+  
+"scripts":{
+    "build":"rollup -c "
+  }
+
+}
+
+```
+
+- Run yarn build and it will compile src/index.ts file to lib folder 
+```
+yarn build 
+```
