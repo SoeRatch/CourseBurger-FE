@@ -185,3 +185,42 @@ touch rollup.config.mjs
 ```
 yarn build 
 ```
+
+
+## React Playground
+
+- make react playground
+```
+cd playgrounds
+mkdir react
+```
+
+- initialize react playgrounds
+```
+cd playgrounds/react
+yarn init -y
+```
+
+- install dev dependencies 
+
+```
+yarn add --dev react @types/react typescript parcel-bundler
+yarn add --dev react-dom @types/react-dom
+```
+
+- add dev script in playgrounds/react/package.json
+```javascript
+{
+  
+"scripts": {
+    "dev":"parcel src/index.html -p 3000"
+  }
+}
+
+```
+
+- run dev
+```
+yarn dev 
+```
+it will create a dist folder and run on port 3000 

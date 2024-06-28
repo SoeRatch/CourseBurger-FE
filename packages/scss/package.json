@@ -10,9 +10,7 @@
     "dev": "nodemon --warch src --exec yarn build -e scss"
   },
   "husky": {
-    "hooks": {
-      
-    }
+    "hooks": {}
   },
   "lint-staged": {
     "*.scss": "yarn lint:fix"
@@ -24,6 +22,7 @@
   "devDependencies": {
     "husky": "4",
     "lint-staged": "^15.2.7",
+    "nodemon": "^3.1.4",
     "prettier": "^3.3.2",
     "stylelint": "^16.6.1",
     "stylelint-config-prettier": "^9.0.5",

@@ -2,7 +2,8 @@
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "useNx": true,
   "packages": [
-    "packages/*"
+    "packages/*",
+    "playgrounds/*"
   ],
   "npmClient": "yarn",
   "version": "0.0.0",
