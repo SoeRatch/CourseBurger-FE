@@ -3,9 +3,9 @@ import TS from 'rollup-plugin-typescript2'
 export default {
 
     input :[
-        'src/index.ts',
-        'src/atoms/Button/index.ts',
-        'src/atoms/Color/index.ts'
+
+        'src/index.ts'
+        
     ],
 
     output:{
@@ -17,6 +17,6 @@ export default {
 
     plugins:[TS()],
     
-    external: ['react']
+    external: ['react','@dsys-cb.e/foundation']
 
 }
